@@ -27,7 +27,7 @@ npm i --s netlify-plugin-form-submissions
 
 ### 2. Add the plugin and its options to your netlify.toml
 
-This plugin will fetch the specified feeds and stash their data prior to the execution of the `build` command you have specified in your Netlify configuration. The desired feeds can be specified in the `netlify.toml` config file.
+This plugin will fetch the submission to specified forms and stash the data prior to the execution of the `build` command you have specified in your Netlify configuration. You can choose which forms you want get the submission for, or just get them all by adding some config in the `netlify.toml` config file. The plugin will discover all the form present in your site.
 
 
 ```toml
