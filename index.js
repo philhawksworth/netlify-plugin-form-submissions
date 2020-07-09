@@ -34,9 +34,9 @@ module.exports = {
     const forms = await fetch(`https://api.netlify.com/api/v1/sites/${constants.SITE_ID}/forms?access_token=${NETLIFY_AUTH_TOKEN}`).then(res => res.json());
 
     // build an index object of the form names and their IDs
-    console.log(chalk.blue(`${forms.length} forms found in the site:`));
+    console.log(chalk.green(`${forms.length} forms found in the site:`));
     forms.forEach(form => {
-      console.log(chalk.blue(form.name), `(${form.id})` );
+      console.log(chalk.green(form.name), `(${form.id})` );
       formIDs[form.name] = form.id;
     });
 
