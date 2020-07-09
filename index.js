@@ -27,7 +27,7 @@ module.exports = {
 
     // only proceed if an auth token has been set as an env var.
     if(!NETLIFY_AUTH_TOKEN){
-      return utils.build.failPlugin(`The form-submission plugin requires access to the Netlify API via an NETLIFY_AUTH_TOKEN environment variable. Visit https://app.netlify.com/user/applications to create an access token and save it as an environment variable called NETLIFY_AUTH_TOKEN before retrying`);
+      return utils.build.failPlugin(`The form-submission plugin requires access to the Netlify API via an NETLIFY_AUTH_TOKEN environment variable. Visit https://app.netlify.com/user/applications to create an personal access token and save it as an environment variable called NETLIFY_AUTH_TOKEN before retrying`);
     }
 
     // get info about what forms exist on the site

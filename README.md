@@ -47,3 +47,11 @@ This plugin will fetch the specified feeds and stash their data prior to the exe
     dataDirectory = "site/_data"
 
 ```
+
+### 3. Grant access via the Netlify API
+
+The plugin uses the Netlify API to access your form submissions data and requires an access token to be stored as a site environment variable.
+
+1. Visit your [Netlify User Settings](https://app.netlify.com/user/applications?utm_source=github&utm_medium=plugin-formsubmissions-pnh&utm_campaign=devex ) to create a new Personal access token
+2. Create a `NETLIFY_AUTH_TOKEN` environment variable containing this access token.
+3. For local development, you may also wish to specify this environment variable in a local `.env` file (remember to add your `.env` file to your `.gitignore`)
