@@ -9,6 +9,11 @@ This plugin uses the Netlify API to request the data submitted to your forms. It
 You can also configure this plugin to present the gathered data in the appropriate location, so your chosen [static site generator](https://www.netlify.com/blog/2020/04/14/what-is-a-static-site-generator-and-3-ways-to-find-the-best-one/?utm_source=github&utm_medium=plugin-formsubmissions-pnh&utm_campaign=devex) can leverage it during the build.
 
 
+## A demo to explore and to clone
+
+- Demo site: https://demo-netlify-plugin-form-submissions.netlify.app/
+- Demo repo: https://github.com/philhawksworth/demo-netlify-plugin-form-submissions
+
 
 ## Installation
 
