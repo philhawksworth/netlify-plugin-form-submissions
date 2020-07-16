@@ -3,5 +3,5 @@ inputs:
   - name: formNames
     default: "All"
   - name: dataDirectory
-    required: true
+    default: "_data"
 
