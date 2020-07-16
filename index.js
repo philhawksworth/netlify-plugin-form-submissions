@@ -30,16 +30,26 @@ module.exports = {
       return utils.build.failPlugin(`The form-submission plugin requires access to the Netlify API via an NETLIFY_AUTH_TOKEN environment variable. Visit https://app.netlify.com/user/applications to create a personal access token and save it as an environment variable called NETLIFY_AUTH_TOKEN before retrying`);
     }
 
-    // get info about what forms exist on the site
-    const forms = await fetch(`https://api.netlify.com/api/v1/sites/${constants.SITE_ID}/forms?access_token=${NETLIFY_AUTH_TOKEN}`).then(res => res.json());
+    // Fetch the data about what forms exist for this site
+    const forms = await fetch(`https://api.netlify.com/api/v1/sites/${constants.SITE_ID}/forms?access_token=${NETLIFY_AUTH_TOKEN}`)
+      .then(res => res.json())
+      .catch(err => {
+        utils.build.failPlugin(`Failed to get data about this site's forms from the Netlify API. Continuing with build, but form data may be missing which might cause problems.\n\n ${err}`);
+      });
 
     // build an index object of the form names and their IDs
-    console.log(chalk.green(`${forms.length} forms found in the site:`));
+    console.log(chalk.green(`Forms found in the site: ${forms.length}`));
+
+    // No forms? Nothing to do.
+    if(!forms.length) {
+      return;
+    }
+
+    // Output some form summary info for what we found
     forms.forEach(form => {
       console.log(chalk.green(form.name), `(${form.id})` );
       formIDs[form.name] = form.id;
     });
-
 
     // get submissions to specified forms or all forms?
     const chosenForms = inputs.formNames == 'ALL' ? Object.keys(formIDs) : [].concat(inputs.formNames)
